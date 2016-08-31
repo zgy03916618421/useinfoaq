@@ -8,7 +8,7 @@ var MongoClent = require('mongodb').MongoClient;
 var wxConfig ={
     appID : 'wx3c1e9fdd84a88826',
     appsecret : '73544f42698c7564deeff273e9ae0091',
-    token :'kYFoRo2XetRvPiRrpsfSFFRgs2cicW6_iovUOhJtb7700x5qaL5F_mzHADmq28sQUT55wpreR2YXEBS2NjXBRNJiMCoeKjydDXgIoNIzDqIHWDgAEANCJ'
+    token :'XsDA5C4qb12q-PwY6NS-7vgFuHChH6ft1LbxblSQxSCGG754n8tSukdN3JeUn6g2yGQug_nbHC9rQvBnnTZFs7qO3uEgIVd43tchpsI5AmkR8e4NMnP-zS3DdQvEyWvYEZNbAFATOC'
 }
 /*var redis = require('redis'),
     client = redis.createClient(6379,'192.168.100.2',{]});
