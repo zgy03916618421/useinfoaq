@@ -33,7 +33,7 @@ MongoClent.connect('mongodb://192.168.100.2:27017/wechatUser',function (err,db) 
         })
     })
 })*/
-var insert = function (db,docs,cb) {
+/*var insert = function (db,docs,cb) {
     db.collection('userInfo').insertOne(docs,function (err,result) {
         cb();
     })
@@ -52,7 +52,7 @@ function expire(key,time ) {
     return function (cb) {
         client.expire(key,time,cb);
     }
-}
+}*/
 MongoClent.connect('mongodb://192.168.100.2:27017/wechatUser',function (err,db) {
     var cursor = db.collection('openid').find();
     cursor.each(function (err,doc) {
@@ -63,14 +63,6 @@ MongoClent.connect('mongodb://192.168.100.2:27017/wechatUser',function (err,db) 
         result['createtime'] = new Date().toLocaleString();
         db.collection('userInfo').insertOne(result,function (err,rs) {
             console.log('insert one');
-            db.collection('openid').updateOne(
-                {openid : openid},
-                {$currentDate:{'finish':true}},
-                function (err,resu) {
-                    
-                }
-            )
-
         })
     })
 })
