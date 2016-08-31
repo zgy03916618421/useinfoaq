@@ -8,7 +8,7 @@ var MongoClent = require('mongodb').MongoClient;
 var wxConfig ={
     appID : 'wx3c1e9fdd84a88826',
     appsecret : '73544f42698c7564deeff273e9ae0091',
-  token:'cx9xAFw0RnNMXGMoe7cTDMa5o3XXclVzoSZleyvrZCFoCsuFvygTY5IUn3hAb_j9cdI6XKhC6-86wcsAz2i1SIFWlboT71MfTLlR3AjToqevCqt7MXfPyEjobksas97bODAcADAHWT'
+    token :'kYFoRo2XetRvPiRrpsfSFFRgs2cicW6_iovUOhJtb7700x5qaL5F_mzHADmq28sQUT55wpreR2YXEBS2NjXBRNJiMCoeKjydDXgIoNIzDqIHWDgAEANCJ'
 }
 /*var redis = require('redis'),
     client = redis.createClient(6379,'192.168.100.2',{]});
@@ -65,7 +65,7 @@ MongoClent.connect('mongodb://192.168.100.2:27017/wechatUser',function (err,db) 
             console.log('insert one');
             db.collection('openid').updateOne(
                 {openid : openid},
-                {$set:{'finish':true}},
+                {$currentDate:{'finish':true}},
                 function (err,resu) {
                     
                 }
