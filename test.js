@@ -4,13 +4,15 @@
 var redis = require('redis');
 var syncRequest = require('sync-request');
 var startTime = new Date();
-var token = 'sg8l3K1ApJUh_94Tq95YFDySp-M_NgHQKGtww7Zr3YM_h-mko8_Cyx_PzAz5ANOxq7N1Akr21rVfhFXKXZzG5Lc1hB_Zi4Vw5C7RuigVs9NiefrGY0OBZL2m3dYqJZLBCZTiAHAIFZ';
+var token = 'O8XPgQJYAR0M4cXiguEqlD3RzfFDaNiphHDRj_s2H7asy9ONxG2MkXMTTaHmG1Pz7VXYIaKwdOJ_vvL6HaJ7FcAHOcKP6z-aC6bsu1Sr71YgDliadRaH4r3bawSsFZgXMWQgAGAISM';
 var MongoClent = require('mongodb').MongoClient;
 MongoClent.connect('mongodb://192.168.100.2:27017/wechatUser',function (err,db) {
     var cursor = db.collection('openid1').find({'status':false});
     cursor.each(function (err,doc) {
+        console.log(doc);
         var timestarmp = new Date() - startTime;
         if (timestarmp>6900000){
+            startTime = new Date();
             var tokenres = syncRequest('GET','https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3c1e9fdd84a88826&secret=73544f42698c7564deeff273e9ae0091');
             token = JSON.parse(tokenres.getBody().toString()).access_token;
         }
